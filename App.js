@@ -1,10 +1,8 @@
-import React, {Component} from 'react';
-import FlightsScreen from './src/screens/FlightsScreen';
+import React from 'react';
+import AppNavigator from './src/navigation';
 if (__DEV__) {
   require('./ReactotronConfig');
 }
-export default class App extends Component {
-  render() {
-    return <FlightsScreen />;
-  }
+export default function App() {
+  return <AppNavigator />;
 }
