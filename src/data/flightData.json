@@ -1,0 +1,50 @@
+[
+  {
+    "id": 1,
+    "flightNumber": "TK1002",
+    "airline": "Turkish Airlines",
+    "flightDuration": "1h 45m",
+    "departureDate": "23 Aug 2024",
+    "arrivalDate": "23 Aug 2024",
+    "departureCity": "Bucharest",
+    "arrivalCity": "Columbus",
+    "departureTime": "11:00 AM",
+    "arrivalTime": "7:45 AM"
+  },
+  {
+    "id": 2,
+    "flightNumber": "TK1003",
+    "airline": "Turkish Airlines",
+    "flightDuration": "4h 0m",
+    "departureDate": "23 Aug 2024",
+    "arrivalDate": "24 Aug 2024",
+    "departureCity": "San Diego",
+    "arrivalCity": "Barcelona",
+    "departureTime": "10:00 PM",
+    "arrivalTime": "12:00 AM"
+  },
+  {
+    "id": 3,
+    "flightNumber": "TK1004",
+    "airline": "Turkish Airlines",
+    "flightDuration": "3h 30m",
+    "departureDate": "23 Aug 2024",
+    "arrivalDate": "24 Aug 2024",
+    "departureCity": "Cincinnati",
+    "arrivalCity": "Baltimore",
+    "departureTime": "9:00 PM",
+    "arrivalTime": "1:30 AM"
+  },
+  {
+    "id": 4,
+    "flightNumber": "TK1005",
+    "airline": "Turkish Airlines",
+    "flightDuration": "2h 15m",
+    "departureDate": "23 Aug 2024",
+    "arrivalDate": "23 Aug 2024",
+    "departureCity": "Pasadena",
+    "arrivalCity": "Savannah",
+    "departureTime": "3:00 PM",
+    "arrivalTime": "5:15 PM"
+  }
+]
