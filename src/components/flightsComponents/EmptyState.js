@@ -1,22 +1,12 @@
-// src/components/flightsComponents/EmptyState.js
 import React from 'react';
-import {View, Text, StyleSheet} from 'react-native';
+import {View, Text, StyleSheet, TouchableOpacity} from 'react-native';
 import Icon from 'react-native-vector-icons/SimpleLineIcons';
-import {useDispatch} from 'react-redux';
-import {addFlight} from '../../redux/flightSlice'; // Redux slice'tan addFlight action'ını import edin
-import AddFlightButton from './AddFlightButton';
-import {colors} from '../../style';
-const EmptyState = () => {
-  const dispatch = useDispatch();
-
-  const handleAddFlight = () => {
-    dispatch(addFlight({id: new Date().toISOString(), name: 'Yeni Uçuş'})); // Örnek bir uçuş ekleme
-  };
-
+import {buttonSizes, colors, spacing, typography} from '../../style';
+const EmptyState = ({onAddTwoWay}) => {
   return (
     <View style={styles.container}>
       <View style={styles.iconContainer}>
-        <Icon name="plane" size={30} color={'black'} />
+        <Icon name="plane" size={buttonSizes.defaultHeight} color={'black'} />
       </View>
       <View style={styles.textContainer}>
         <Text style={styles.headerText}>Not Flights Added Yet</Text>
@@ -25,7 +15,11 @@ const EmptyState = () => {
           begin your journey.
         </Text>
       </View>
-      <AddFlightButton onPress={handleAddFlight} />
+      <View style={styles.container}>
+        <TouchableOpacity style={styles.buttonContainer} onPress={onAddTwoWay}>
+          <Text style={styles.buttonText}>Add Flight</Text>
+        </TouchableOpacity>
+      </View>
     </View>
   );
 };
@@ -35,31 +29,44 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     backgroundColor: colors.white,
-    padding: 26,
+    padding: spacing.quarter,
   },
   iconContainer: {
     alignItems: 'center',
-    borderWidth: 1,
-    padding: 12,
-    borderRadius: 15,
+    borderWidth: spacing.one,
+    padding: spacing.small * 2,
+    borderRadius: spacing.medium,
     borderColor: colors.lightGray,
-    marginBottom: 20,
+    marginBottom: spacing.ten * 2,
   },
   textContainer: {
     alignItems: 'center',
-    marginBottom: 20,
+    marginBottom: spacing.ten / 2,
   },
   headerText: {
     textAlign: 'center',
-    fontSize: 26,
-    marginBottom: 8,
+    fontSize: typography.fontSize.xLarge,
+    marginBottom: spacing.thin * 2,
     fontWeight: 'bold',
     color: colors.black,
   },
   descriptionText: {
     textAlign: 'center',
-    fontSize: 18,
+    fontSize: typography.fontSize.description,
     color: colors.littleTextColor,
+  },
+  buttonContainer: {
+    alignItems: 'center',
+    justifyContent: 'center',
+    height: spacing.mega,
+    width: spacing.hundred,
+    backgroundColor: colors.addBackground,
+    borderRadius: spacing.ten,
+  },
+  buttonText: {
+    color: colors.white,
+    fontSize: spacing.medium,
+    fontWeight: typography.fontWeight.medium,
   },
 });
 
