@@ -10,16 +10,12 @@
     "arrivalDate": "21 Apr 2024",
     "arrivalCity": "Barcelona",
     "arrivalTime": "03:00 PM",
-    "layovers": [
-      {
-        "city": "Richmond",
-        "departureDate": "22 Apr 2024",
-        "departureTime": "10:00 PM",
-        "arrivalDate": "23 Apr 2024",
-        "arrivalTime": "04:00 AM",
-        "flightDuration": "6h 30m"
-      }
-    ]
+    "layoverCity": "Richmond",
+    "layoverDepartureDate": "22 Apr 2024",
+    "layoverDepartureTime": "10:00 PM",
+    "layoverArrivalDate": "23 Apr 2024",
+    "layoverArrivalTime": "04:00 AM",
+    "layoverFlightDuration": "6h 30m"
   },
 
   {
@@ -33,16 +29,12 @@
     "arrivalDate": "21 Apr 2024",
     "arrivalCity": "Savannah",
     "arrivalTime": "03:00 PM",
-    "layovers": [
-      {
-        "city": "Pasadena",
-        "departureDate": "22 Apr 2024",
-        "departureTime": "10:00 PM",
-        "arrivalDate": "23 Apr 2024",
-        "arrivalTime": "04:00 AM",
-        "flightDuration": "6h 30m"
-      }
-    ]
+    "layoverCity": "Pasadena",
+    "layoverDepartureDate": "22 Apr 2024",
+    "layoverDepartureTime": "10:00 PM",
+    "layoverArrivalDate": "23 Apr 2024",
+    "layoverArrivalTime": "04:00 AM",
+    "layoverFlightDuration": "6h 30m"
   },
   {
     "id": 3,
@@ -55,15 +47,11 @@
     "arrivalDate": "21 Apr 2024",
     "arrivalCity": "San Diego",
     "arrivalTime": "03:00 PM",
-    "layovers": [
-      {
-        "city": "Barcelona",
-        "departureDate": "22 Apr 2024",
-        "departureTime": "10:00 PM",
-        "arrivalDate": "23 Apr 2024",
-        "arrivalTime": "04:00 AM",
-        "flightDuration": "6h 30m"
-      }
-    ]
+    "layoverCity": "Barcelona",
+    "layoverDepartureDate": "22 Apr 2024",
+    "layoverDepartureTime": "10:00 PM",
+    "layoverArrivalDate": "23 Apr 2024",
+    "layoverArrivalTime": "04:00 AM",
+    "layoverFlightDuration": "6h 30m"
   }
 ]
