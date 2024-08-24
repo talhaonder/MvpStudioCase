@@ -2,65 +2,62 @@ import React from 'react';
 import {View, Text, StyleSheet, Image} from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 import IconT from 'react-native-vector-icons/MaterialCommunityIcons';
-import flightData from '../../data/flightData.json'; // JSON dosyasını import et
 import Logo from '../../assets/logo/Turkish-Airlines.png';
+import {colors} from '../../style';
+const FlightCard = ({flight, isFocused}) => {
+  // Debugging: Check if flight data is being received
+  console.log('FlightCard flight:', flight);
 
-const FlightCart = () => {
-  // id'si 1 olan veriyi seç
-  const flights = flightData.filter(flight => flight.id === 4);
+  if (!flight) return null;
 
   return (
-    <View>
-      {flights.map((flight, index) => (
-        <View key={index} style={styles.boardingPass}>
-          <View style={styles.card}>
-            <View style={styles.cardHeader}>
-              <View style={styles.companyInfo}>
-                <Image
-                  source={Logo} // Ensure this path is correct
-                  style={styles.logo}
-                />
-                <Text style={styles.companyNameText}>
-                  {flight.flightNumber} · {flight.airline}
-                </Text>
-              </View>
-              <View style={styles.flightDuration}>
-                <Text style={styles.flightDurationText}>
-                  {flight.flightDuration}
-                </Text>
-              </View>
-            </View>
-            <View style={styles.flightDates}>
-              <FlightDate
-                icon="arrow-top-right-thin-circle-outline"
-                date={flight.departureDate}
-              />
-              <FlightDate
-                icon="arrow-bottom-right-thin-circle-outline"
-                date={flight.arrivalDate}
-              />
-            </View>
+    <View style={[styles.boardingPass, isFocused && styles.focusedCard]}>
+      <View style={styles.card}>
+        <View style={styles.cardHeader}>
+          <View style={styles.companyInfo}>
+            <Image
+              source={Logo} // Ensure this path is correct
+              style={styles.logo}
+            />
+            <Text style={styles.companyNameText}>
+              {flight.flightNumber} · {flight.airline}
+            </Text>
           </View>
-          <View style={styles.cardBody}>
-            <View style={styles.flightDetails}>
-              <Text style={styles.cityText}>{flight.departureCity}</Text>
-              <View style={styles.flightPath}>
-                <Text style={styles.dashedLine}>
-                  --- {''} {''} ---
-                </Text>
-                <Icon name="airplane-outline" size={32} color="black" />
-              </View>
-              <Text style={styles.cityText}>{flight.arrivalCity}</Text>
-            </View>
-            <View style={styles.travelTimes}>
-              <Text style={styles.travelTimeText}>{flight.departureTime}</Text>
-              <Text style={styles.travelTimeText}>{flight.arrivalTime}</Text>
-            </View>
+          <View style={styles.flightDuration}>
+            <Text style={styles.flightDurationText}>
+              {flight.flightDuration}
+            </Text>
           </View>
-          <View style={styles.tabLeft}></View>
-          <View style={styles.tabRight}></View>
         </View>
-      ))}
+        <View style={styles.flightDates}>
+          <FlightDate
+            icon="arrow-top-right-thin-circle-outline"
+            date={flight.departureDate}
+          />
+          <FlightDate
+            icon="arrow-bottom-right-thin-circle-outline"
+            date={flight.arrivalDate}
+          />
+        </View>
+        <View style={styles.cardBody}>
+          <View style={styles.flightDetails}>
+            <Text style={styles.cityText}>{flight.departureCity}</Text>
+            <View style={styles.flightPath}>
+              <Text style={styles.dashedLine}>
+                --- {''} {''} ---
+              </Text>
+              <Icon name="airplane-outline" size={32} color="black" />
+            </View>
+            <Text style={styles.cityText}>{flight.arrivalCity}</Text>
+          </View>
+          <View style={styles.travelTimes}>
+            <Text style={styles.travelTimeText}>{flight.departureTime}</Text>
+            <Text style={styles.travelTimeText}>{flight.arrivalTime}</Text>
+          </View>
+        </View>
+        <View style={[styles.tabLeft, isFocused && styles.focusedTab]}></View>
+        <View style={[styles.tabRight, isFocused && styles.focusedTab]}></View>
+      </View>
     </View>
   );
 };
@@ -74,14 +71,18 @@ const FlightDate = ({icon, date}) => (
 
 const styles = StyleSheet.create({
   boardingPass: {
-    margin: 20,
-    borderRadius: 30,
+    marginHorizontal: 20,
+    marginVertical: 5,
+    borderRadius: 15,
     paddingVertical: 18,
     paddingHorizontal: 24,
-    backgroundColor: '#fff',
-    borderColor: '#ddd',
+    backgroundColor: colors.white,
+    borderColor: colors.lightGray,
     borderWidth: 1,
     position: 'relative',
+  },
+  focusedCard: {
+    width: 370,
   },
   card: {
     marginBottom: 10,
@@ -111,10 +112,10 @@ const styles = StyleSheet.create({
     paddingVertical: 6,
     paddingHorizontal: 10,
     borderRadius: 10,
-    backgroundColor: '#fff7ed',
+    backgroundColor: colors.buttonBackground,
   },
   flightDurationText: {
-    color: '#c2410c',
+    color: colors.red,
     fontWeight: '500',
   },
   flightDates: {
@@ -128,7 +129,7 @@ const styles = StyleSheet.create({
   },
   dateText: {
     fontSize: 14,
-    color: '#6b7280',
+    color: colors.gray,
     marginLeft: 4,
   },
   cardBody: {
@@ -142,7 +143,7 @@ const styles = StyleSheet.create({
   cityText: {
     fontSize: 22,
     fontWeight: '500',
-    color: '#000',
+    color: colors.black,
     marginBottom: 5,
   },
   flightPath: {
@@ -163,13 +164,13 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   travelTimeText: {
-    color: '#374151',
+    color: colors.timeColor,
     fontWeight: '500',
   },
   tabLeft: {
     position: 'absolute',
     alignSelf: 'center',
-    backgroundColor: '#fff',
+    backgroundColor: colors.white,
     width: 16,
     height: 30,
     borderTopLeftRadius: 35,
@@ -177,15 +178,15 @@ const styles = StyleSheet.create({
     borderLeftWidth: 1,
     borderTopWidth: 1,
     borderBottomWidth: 1,
-    borderColor: '#ddd',
-    bottom: 85,
-    right: -0.9,
+    borderColor: colors.lightGray,
+    bottom: 60,
+    right: -25,
     zIndex: 10,
   },
   tabRight: {
     position: 'absolute',
     alignSelf: 'center',
-    backgroundColor: '#fff',
+    backgroundColor: colors.white,
     width: 16,
     height: 30,
     borderTopRightRadius: 35,
@@ -193,11 +194,14 @@ const styles = StyleSheet.create({
     borderRightWidth: 1,
     borderTopWidth: 1,
     borderBottomWidth: 1,
-    borderColor: '#ddd',
-    bottom: 85,
-    left: -0.9,
+    borderColor: colors.lightGray,
+    bottom: 60,
+    left: -25,
     zIndex: 10,
+  },
+  focusedTab: {
+    backgroundColor: colors.transparentBackground,
   },
 });
 
-export default FlightCart;
+export default FlightCard;

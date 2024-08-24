@@ -1,17 +1,14 @@
-import {Text, StyleSheet, View} from 'react-native';
+import {Text, StyleSheet, View, TouchableOpacity} from 'react-native';
 import React, {Component} from 'react';
+import {colors} from '../../style';
 
-export default class RemoveButton extends Component {
-  render() {
-    return (
-      <View style={styles.container}>
-        <View style={styles.buttonContainer}>
-          <Text style={styles.buttonText}>Remove Flight</Text>
-        </View>
-      </View>
-    );
-  }
-}
+const RemoveButton = ({onPress}) => {
+  return (
+    <TouchableOpacity style={styles.buttonContainer} onPress={onPress}>
+      <Text style={styles.buttonText}>Remove Flight</Text>
+    </TouchableOpacity>
+  );
+};
 
 const styles = StyleSheet.create({
   container: {
@@ -25,12 +22,13 @@ const styles = StyleSheet.create({
     display: 'flex',
     height: 45,
     width: 370,
-    backgroundColor: '#fee2e2',
+    backgroundColor: colors.removeBackground,
     borderRadius: 15,
   },
   buttonText: {
-    color: '#7f1d1d',
+    color: colors.removeColor,
     fontSize: 16,
     fontWeight: '500',
   },
 });
+export default RemoveButton;

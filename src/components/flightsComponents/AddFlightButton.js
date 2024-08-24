@@ -1,36 +1,35 @@
-import {Text, StyleSheet, View} from 'react-native';
-import React, {Component} from 'react';
-
-export default class AddFlightButton extends Component {
-  render() {
-    return (
-      <View style={styles.container}>
-        <View style={styles.buttonContainer}>
-          <Text style={styles.buttonText}>Add Flight</Text>
-        </View>
-      </View>
-    );
-  }
-}
+import {Text, StyleSheet, View, TouchableOpacity} from 'react-native';
+import React, {useContext} from 'react';
+import {colors} from '../../style';
+const AddFlightButton = ({onAddFlight}) => {
+  return (
+    <View style={styles.container}>
+      <TouchableOpacity style={styles.buttonContainer} onPress={onAddFlight}>
+        <Text style={styles.buttonText}>Add Flight</Text>
+      </TouchableOpacity>
+    </View>
+  );
+};
 
 const styles = StyleSheet.create({
   container: {
     alignItems: 'center',
     justifyContent: 'center',
   },
-
   buttonContainer: {
     alignItems: 'center',
     justifyContent: 'center',
-    display: 'flex',
     height: 45,
     width: 100,
-    backgroundColor: '#ea580c',
+    backgroundColor: colors.orange,
     borderRadius: 10,
+    marginTop: 20,
   },
   buttonText: {
-    color: '#ffff',
+    color: colors.white,
     fontSize: 16,
     fontWeight: '500',
   },
 });
+
+export default AddFlightButton;
