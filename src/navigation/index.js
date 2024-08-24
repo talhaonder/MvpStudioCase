@@ -8,7 +8,7 @@ import IconThird from 'react-native-vector-icons/EvilIcons';
 import FlightsScreen from '../screens/FlightsScreen';
 import PlansScreen from '../screens/PlansScreen';
 import ProfileScreen from '../screens/ProfileScreen';
-import {colors} from '../style';
+import {buttonSizes, colors, spacing} from '../style';
 
 const Tab = createBottomTabNavigator();
 
@@ -24,7 +24,13 @@ function AppNavigator() {
             } else if (route.name === 'Plans') {
               return <Icon name="event" size={size} color={color} />;
             } else if (route.name === 'Profile') {
-              return <IconThird name="user" size={36} color={color} />;
+              return (
+                <IconThird
+                  name="user"
+                  size={buttonSizes.defaultHeight}
+                  color={color}
+                />
+              );
             }
           },
           tabBarActiveTintColor: colors.black,
@@ -32,8 +38,8 @@ function AppNavigator() {
           headerShown: false, // Tüm ekranlar için header'ı gizler
 
           tabBarStyle: {
-            paddingBottom: 20, // Alt tab barın alta uzaklığı
-            height: 70, // Alt tab barın yüksekliği
+            paddingBottom: spacing.ten * 2, // Alt tab barın alta uzaklığı
+            height: spacing.ten * 7, // Alt tab barın yüksekliği
           },
         })}>
         <Tab.Screen name="Plans" component={PlansScreen} />

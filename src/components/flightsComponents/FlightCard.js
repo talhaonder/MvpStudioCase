@@ -3,11 +3,11 @@ import {View, Text, StyleSheet, Image} from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 import IconT from 'react-native-vector-icons/MaterialCommunityIcons';
 import Logo from '../../assets/logo/Turkish-Airlines.png';
-import {colors} from '../../style';
+import {buttonSizes, colors, spacing, typography} from '../../style';
+
 const FlightCard = ({flight, isFocused}) => {
   // Debugging: Check if flight data is being received
   console.log('FlightCard flight:', flight);
-
   if (!flight) return null;
 
   return (
@@ -46,7 +46,11 @@ const FlightCard = ({flight, isFocused}) => {
               <Text style={styles.dashedLine}>
                 --- {''} {''} ---
               </Text>
-              <Icon name="airplane-outline" size={32} color="black" />
+              <Icon
+                name="airplane-outline"
+                size={buttonSizes.defaultHeight}
+                color="black"
+              />
             </View>
             <Text style={styles.cityText}>{flight.arrivalCity}</Text>
           </View>
@@ -64,28 +68,28 @@ const FlightCard = ({flight, isFocused}) => {
 
 const FlightDate = ({icon, date}) => (
   <View style={styles.flightDate}>
-    <IconT name={icon} size={28} color="#6b7280" />
+    <IconT name={icon} size={buttonSizes.iconSize} color="#6b7280" />
     <Text style={styles.dateText}>{date}</Text>
   </View>
 );
 
 const styles = StyleSheet.create({
   boardingPass: {
-    marginHorizontal: 20,
-    marginVertical: 5,
-    borderRadius: 15,
-    paddingVertical: 18,
-    paddingHorizontal: 24,
+    marginHorizontal: spacing.ten * 2,
+    marginVertical: spacing.ten / 2,
+    borderRadius: spacing.medium,
+    paddingVertical: spacing.small * 3,
+    paddingHorizontal: spacing.large,
     backgroundColor: colors.white,
     borderColor: colors.lightGray,
-    borderWidth: 1,
+    borderWidth: spacing.one,
     position: 'relative',
   },
   focusedCard: {
-    width: 370,
+    width: spacing.container,
   },
   card: {
-    marginBottom: 10,
+    marginBottom: spacing.ten,
   },
   cardHeader: {
     flexDirection: 'row',
@@ -97,29 +101,29 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   logo: {
-    width: 50,
-    height: 50,
+    width: spacing.hundred / 2,
+    height: spacing.hundred / 2,
     resizeMode: 'contain',
-    marginLeft: -10,
+    marginLeft: -spacing.ten,
   },
   companyNameText: {
-    fontSize: 14,
-    fontWeight: 'bold',
+    fontSize: typography.fontSize.medium,
+    fontWeight: typography.fontWeight.medium,
   },
   flightDuration: {
-    borderWidth: 0.5,
-    borderColor: 'orange',
-    paddingVertical: 6,
-    paddingHorizontal: 10,
-    borderRadius: 10,
+    borderWidth: spacing.one,
+    borderColor: colors.orange,
+    paddingVertical: spacing.small,
+    paddingHorizontal: spacing.ten,
+    borderRadius: spacing.ten,
     backgroundColor: colors.buttonBackground,
   },
   flightDurationText: {
     color: colors.red,
-    fontWeight: '500',
+    fontWeight: typography.fontWeight.medium,
   },
   flightDates: {
-    paddingVertical: 10,
+    paddingVertical: spacing.ten,
     flexDirection: 'row',
     justifyContent: 'space-between',
   },
@@ -128,12 +132,12 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   dateText: {
-    fontSize: 14,
+    fontSize: typography.fontSize.medium,
     color: colors.gray,
-    marginLeft: 4,
+    marginLeft: spacing.thin,
   },
   cardBody: {
-    marginBottom: 10,
+    marginBottom: spacing.ten,
   },
   flightDetails: {
     flexDirection: 'row',
@@ -141,10 +145,10 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   cityText: {
-    fontSize: 22,
-    fontWeight: '500',
+    fontSize: typography.fontSize.large,
+    fontWeight: typography.fontWeight.medium,
     color: colors.black,
-    marginBottom: 5,
+    marginBottom: spacing.ten / 2,
   },
   flightPath: {
     alignItems: 'center',
@@ -153,10 +157,10 @@ const styles = StyleSheet.create({
     borderStyle: 'dashed',
     position: 'absolute',
     alignSelf: 'center',
-    top: 5.4,
-    width: 80,
-    zIndex: -1,
-    letterSpacing: 5,
+    top: spacing.ten / 2,
+    width: spacing.ten * 8,
+    zIndex: -spacing.one,
+    letterSpacing: spacing.ten / 2,
   },
   travelTimes: {
     flexDirection: 'row',
@@ -165,39 +169,39 @@ const styles = StyleSheet.create({
   },
   travelTimeText: {
     color: colors.timeColor,
-    fontWeight: '500',
+    fontWeight: typography.fontWeight.medium,
   },
   tabLeft: {
     position: 'absolute',
     alignSelf: 'center',
     backgroundColor: colors.white,
-    width: 16,
-    height: 30,
-    borderTopLeftRadius: 35,
-    borderBottomLeftRadius: 35,
-    borderLeftWidth: 1,
-    borderTopWidth: 1,
-    borderBottomWidth: 1,
+    width: spacing.medium,
+    height: spacing.medium * 2,
+    borderTopLeftRadius: spacing.xLarge,
+    borderBottomLeftRadius: spacing.xLarge,
+    borderLeftWidth: spacing.one,
+    borderTopWidth: spacing.one,
+    borderBottomWidth: spacing.one,
     borderColor: colors.lightGray,
-    bottom: 60,
-    right: -25,
-    zIndex: 10,
+    bottom: spacing.ultra,
+    right: -spacing.quarter,
+    zIndex: spacing.ten,
   },
   tabRight: {
     position: 'absolute',
     alignSelf: 'center',
     backgroundColor: colors.white,
-    width: 16,
-    height: 30,
-    borderTopRightRadius: 35,
-    borderBottomRightRadius: 35,
-    borderRightWidth: 1,
-    borderTopWidth: 1,
-    borderBottomWidth: 1,
+    width: spacing.medium,
+    height: spacing.medium * 2,
+    borderTopRightRadius: spacing.xLarge,
+    borderBottomRightRadius: spacing.xLarge,
+    borderRightWidth: spacing.one,
+    borderTopWidth: spacing.one,
+    borderBottomWidth: spacing.one,
     borderColor: colors.lightGray,
-    bottom: 60,
-    left: -25,
-    zIndex: 10,
+    bottom: spacing.ultra,
+    left: -spacing.quarter,
+    zIndex: spacing.ten,
   },
   focusedTab: {
     backgroundColor: colors.transparentBackground,

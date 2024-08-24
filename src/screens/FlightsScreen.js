@@ -22,8 +22,7 @@ import {
   setSelectedFlight,
   clearSelectedFlight,
 } from '../redux/flightSlice';
-import {colors} from '../style';
-import TwoWayFlightCard from '../components/flightsComponents/TwoWayFlightCard';
+import {colors, spacing} from '../style';
 
 const FlightsScreen = () => {
   const dispatch = useDispatch();
@@ -89,13 +88,25 @@ const FlightsScreen = () => {
     console.log(`Selected Flight ID:`, selectedFlight);
   }, [flightCards, selectedFlight]);
 
+  const renderSelectedFlightCart = () => {
+    const selectedFlightData = getSelectedFlightData();
+    if (!selectedFlightData) return null;
+
+    return (
+      <FlightCart
+        flight={selectedFlightData} // Pass the selected flight data
+        flightType="isOneWay"
+        isFocused={true}
+      />
+    );
+  };
+
   return (
     <SafeAreaView style={styles.container}>
       <Header onAddFlight={handleAddFlight} />
-      <TwoWayFlightCard />
       {flightCards.length === 0 ? (
         <View style={styles.main}>
-          <EmptyState />
+          <EmptyState onAddFlight={handleAddFlight} />
         </View>
       ) : (
         <FlatList
@@ -115,13 +126,7 @@ const FlightsScreen = () => {
           <View style={styles.modalBackground}>
             <TouchableWithoutFeedback>
               <>
-                {selectedFlight && (
-                  <FlightCart
-                    flight={getSelectedFlightData()} // Pass the selected flight data
-                    flightType="isOneWay"
-                    isFocused={true}
-                  />
-                )}
+                {renderSelectedFlightCart()}
                 <View style={styles.removeButtonContainer}>
                   <RemoveButton onPress={handleRemoveFlight} />
                 </View>
@@ -139,7 +144,7 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: colors.white,
   },
-  main: {alignItems: 'center', justifyContent: 'center', flex: 1},
+  main: {alignItems: 'center', justifyContent: 'center', flex: spacing.one},
   modalBackground: {
     flex: 1,
     justifyContent: 'center',
@@ -148,13 +153,13 @@ const styles = StyleSheet.create({
   },
   modalContent: {
     width: '90%',
-    maxWidth: 400,
+    maxWidth: spacing.hundred * 4,
     backgroundColor: colors.white,
-    padding: 20,
-    borderRadius: 10,
+    padding: spacing.ten * 2,
+    borderRadius: spacing.ten,
   },
   removeButtonContainer: {
-    marginTop: 20,
+    marginTop: spacing.ten * 2,
     alignItems: 'center',
   },
 });

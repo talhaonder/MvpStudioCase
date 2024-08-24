@@ -1,6 +1,6 @@
 import {Text, StyleSheet, View, TouchableOpacity} from 'react-native';
 import React, {Component} from 'react';
-import {colors} from '../../style';
+import {colors, spacing, typography} from '../../style';
 
 const RemoveButton = ({onPress}) => {
   return (
@@ -20,15 +20,15 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     display: 'flex',
-    height: 45,
-    width: 370,
+    height: spacing.mega,
+    width: spacing.container,
     backgroundColor: colors.removeBackground,
-    borderRadius: 15,
+    borderRadius: spacing.medium,
   },
   buttonText: {
     color: colors.removeColor,
-    fontSize: 16,
-    fontWeight: '500',
+    fontSize: typography.fontSize.description,
+    fontWeight: typography.fontWeight.medium,
   },
 });
 export default RemoveButton;
