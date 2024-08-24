@@ -3,7 +3,7 @@ import React from 'react';
 import {View} from 'react-native';
 import FlightCard from './FlightCard'; // Import the FlightCard component
 
-const FlightCart = ({flight, flightType = 'isOneWay', isFocused = false}) => {
+const FlightCart = ({flight, isFocused = false}) => {
   if (!flight) {
     return null; // If no flight data is available, render nothing
   }
