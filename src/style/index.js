@@ -15,18 +15,22 @@ const colors = {
   transparentBackground: '#7f7f7f',
   littleTextColor: '#4b5563',
   red: '#c2410c',
+  addBackground: '#ea580c',
 };
 
 const typography = {
   fontFamily: 'Arial',
   fontSize: {
     small: 12,
-    medium: 16,
-    large: 20,
-    xLarge: 34,
+    medium: 14,
+    description: 18,
+    large: 22,
+    xLarge: 26,
+    header: 40,
   },
   fontWeight: {
     regular: '400',
+    medium: '500',
     bold: '700',
   },
   lineHeight: {
@@ -43,15 +47,18 @@ const typography = {
 };
 
 const spacing = {
+  one: 1,
   thin: 4,
-  small: 8,
+  small: 6,
   ten: 10,
-  medium: 16,
+  medium: 15,
   large: 24,
-  xLarge: 32,
+  quarter: 25,
+  xLarge: 35,
   mega: 45,
-  ultra: 75,
+  ultra: 60,
   hundred: 100,
+  container: 370
 };
 
 const buttonSizes = {
