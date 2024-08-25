@@ -124,7 +124,7 @@ const styles = StyleSheet.create({
     borderTopWidth: spacing.one,
     borderBottomWidth: spacing.one,
     borderColor: colors.lightGray,
-    top: spacing.hundred - 8,
+    top: spacing.hundred - 20,
     left: -spacing.one,
     zIndex: layout.zIndex.top,
   },
