@@ -1,80 +1,144 @@
-This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
+# Uçuş Yönetim Uygulaması
 
-# Getting Started
+Bu proje, basit bir Figma tasarımını fonksiyonel bir React Native uygulamasına dönüştürmeyi amaçlayan bir çalışmadır. Bu uygulama, uçuş bilgilerini yönetmek için kullanıcı dostu bir arayüz sunar ve boş durum, uçuş ekleme, uçuş kartı etkileşimi ve uçuş silme özelliklerini içerir.
 
->**Note**: Make sure you have completed the [React Native - Environment Setup](https://reactnative.dev/docs/environment-setup) instructions till "Creating a new application" step, before proceeding.
+## İçindekiler
 
-## Step 1: Start the Metro Server
+- [Amaç](#amaç)
+- [Özellikler](#özellikler)
+- [Kurulum](#kurulum)
+- [Kullanım](#kullanım)
+- [Proje Yapısı](#proje-yapısı)
+- [Redux Durum Yönetimi](#redux-durum-yönetimi)
+- [UI Bileşenleri](#ui-bileşenleri)
+- [Veri Yönetimi](#veri-yönetimi)
+- [Katkıda Bulunma](#katkıda-bulunma)
+- [Lisans](#lisans)
+- [Notlar](#notlar)
 
-First, you will need to start **Metro**, the JavaScript _bundler_ that ships _with_ React Native.
+## Amaç
 
-To start Metro, run the following command from the _root_ of your React Native project:
+Bu proje, basit bir Figma tasarımını fonksiyonel bir React Native uygulamasına dönüştürme becerinizi değerlendirmek için hazırlanmıştır. Tasarımı koda dönüştürmek, durum yönetimi yapmak ve yeniden kullanılabilir bileşenler oluşturmak gibi becerileriniz test edilecektir.
 
-```bash
-# using npm
-npm start
+**Figma dosyası**: [Figma Tasarımı](https://www.figma.com/design/cgODek1Y7g0s7B7VVhPlBn/mvpstudio-Case?node-id=81-3256&t=XSoINedjBQ0ZNVMQ-1)
 
-# OR using Yarn
-yarn start
-```
+## Özellikler
 
-## Step 2: Start your Application
+1. **Boş Durum**:
 
-Let Metro Bundler run in its _own_ terminal. Open a _new_ terminal from the _root_ of your React Native project. Run the following command to start your _Android_ or _iOS_ app:
+   - Uygulama başladığında, uçuş eklenmediğini belirten bir mesajla birlikte boş durum ekranı görüntülenir.
+   - "Uçuş Ekle" butonu veya bir "+" simgesi bulunur.
 
-### For Android
+2. **Uçuş Ekle**:
 
-```bash
-# using npm
-npm run android
+   - "Uçuş Ekle" butonuna veya "+" simgesine tıklandığında listeye yeni bir uçuş eklenir.
+   - Uçuş kartı, rastgele oluşturulan veya önceden belirlenmiş uçuş bilgileri (uçuş numarası, kalkış şehri, varış şehri ve saatler) ile doldurulur.
+   - Her uçuş kartı, sağlanan uçuş detaylarıyla render edilir.
 
-# OR using Yarn
-yarn android
-```
+3. **Uçuş Kartı Etkileşimi**:
 
-### For iOS
+   - Bir uçuş kartına tıklandığında, kart vurgulanır.
+   - Bu etkileşim, kullanıcıya görsel geri bildirim sağlar.
 
-```bash
-# using npm
-npm run ios
+4. **Uçuş Sil**:
+   - Her uçuş kartında bir "Uçuşu Kaldır" butonu bulunur.
+   - Bu butona tıklandığında, ilgili uçuş listeden kaldırılır.
 
-# OR using Yarn
-yarn ios
-```
+## Kurulum
 
-If everything is set up _correctly_, you should see your new app running in your _Android Emulator_ or _iOS Simulator_ shortly provided you have set up your emulator/simulator correctly.
+Projenin yerel bilgisayarınıza kurulumu için aşağıdaki adımları izleyin:
 
-This is one way to run your app — you can also run it directly from within Android Studio and Xcode respectively.
+1. **Depoyu Klonlayın**:
+   ```sh
+   git clone https://github.com/your-username/flight-management-app.git
+   cd flight-management-app
+   ```
+2. **Bağımlılıkları Yükleyin**:
+   ```sh
+   npm install
+   ```
+3. **Projeyi Başlatın**:
 
-## Step 3: Modifying your App
+   ```sh
+   npm run start
+   ```
 
-Now that you have successfully run the app, let's modify it.
+   **Android için**:
 
-1. Open `App.tsx` in your text editor of choice and edit some lines.
-2. For **Android**: Press the <kbd>R</kbd> key twice or select **"Reload"** from the **Developer Menu** (<kbd>Ctrl</kbd> + <kbd>M</kbd> (on Window and Linux) or <kbd>Cmd ⌘</kbd> + <kbd>M</kbd> (on macOS)) to see your changes!
+   ```sh
+   npm run android
+   ```
 
-   For **iOS**: Hit <kbd>Cmd ⌘</kbd> + <kbd>R</kbd> in your iOS Simulator to reload the app and see your changes!
+   **iOS için**:
 
-## Congratulations! :tada:
+   ```sh
+   npm run ios
+   ```
 
-You've successfully run and modified your React Native App. :partying_face:
+## Kullanım
 
-### Now what?
+### Uçuş Ekleme
 
-- If you want to add this new React Native code to an existing application, check out the [Integration guide](https://reactnative.dev/docs/integration-with-existing-apps).
-- If you're curious to learn more about React Native, check out the [Introduction to React Native](https://reactnative.dev/docs/getting-started).
+**Uçuş Ekle Butonu**: Başlık kısmındaki `+` butonuna tıklayarak rastgele bir uçuş ekleyin. Uygulama, rastgele olarak bir tek yönlü veya iki yönlü uçuş ekler.
 
-# Troubleshooting
+### Uçuş Detaylarını Görüntüleme
 
-If you can't get this to work, see the [Troubleshooting](https://reactnative.dev/docs/troubleshooting) page.
+**Uçuş Listesi**: Ana ekran, eklenen tüm uçuşların listesini görüntüler. Herhangi bir uçuşa tıklayarak detaylarını görüntüleyebilirsiniz.
 
-# Learn More
+### Uçuşu Silme
 
-To learn more about React Native, take a look at the following resources:
+**Uçuşu Kaldır Butonu**: Bir uçuş seçildiğinde, ekranın altında bir kaldırma butonu belirir. Bu butona tıklayarak seçili uçuşu kaldırabilirsiniz.
 
-- [React Native Website](https://reactnative.dev) - learn more about React Native.
-- [Getting Started](https://reactnative.dev/docs/environment-setup) - an **overview** of React Native and how setup your environment.
-- [Learn the Basics](https://reactnative.dev/docs/getting-started) - a **guided tour** of the React Native **basics**.
-- [Blog](https://reactnative.dev/blog) - read the latest official React Native **Blog** posts.
-- [`@facebook/react-native`](https://github.com/facebook/react-native) - the Open Source; GitHub **repository** for React Native.
-# MvpStudioCase
+### Boş Durum
+
+**Boş Durum Ekranı**: Eğer hiç uçuş eklenmemişse, bir uçuş eklemeniz gerektiğini belirten bir boş durum ekranı gösterilir.
+
+## Redux Durum Yönetimi
+
+Bu projede, uygulamanın durum yönetimi için Redux Toolkit kullanılmıştır. Tek yönlü ve iki yönlü uçuşlar için ayrı ayrı slice'lar oluşturulmuş ve bu slice'lar `store.js` dosyasında birleştirilmiştir.
+
+### `flightSlice.js`
+
+- `addFlight`: Yeni bir tek yönlü uçuş ekler.
+- `removeFlight`: Belirli bir tek yönlü uçuşu listeden çıkarır.
+- `setSelectedFlight`: Bir uçuşu seçili olarak ayarlar.
+- `clearSelectedFlight`: Seçili uçuşu temizler.
+
+### `twoWaySlice.js`
+
+- `addTwoWayFlight`: Yeni bir iki yönlü uçuş ekler.
+- `removeTwoWayFlight`: Belirli bir iki yönlü uçuşu listeden çıkarır.
+- `setSelectedTwoWayFlight`: Bir uçuşu seçili olarak ayarlar.
+- `clearSelectedTwoWayFlight`: Seçili uçuşu temizler.
+
+## UI Bileşenleri
+
+Projedeki her bileşen, yeniden kullanılabilir ve özelleştirilebilir olacak şekilde tasarlanmıştır. Ana bileşenler şunlardır:
+
+- **FlightCard**: Uçuş bilgilerini gösteren ana kart bileşeni.
+- **TwoWayFlightCard**: İki yönlü uçuşları gösteren kart bileşeni.
+- **Header**: Uygulamanın başlık kısmını içerir.
+- **EmptyState**: Uygulamada uçuş olmadığı zaman gösterilen boş durum bileşeni.
+- **RemoveButton**: Uçuş kartını kaldırmak için kullanılan buton.
+
+## Veri Yönetimi
+
+Veri yönetimi için projede JSON dosyaları kullanılmıştır. `flightData.json` ve `twoWayFlightData.json` dosyaları, uçuş bilgilerinin tutulduğu dosyalardır. Bu veriler, uygulamanın bileşenlerine geçilerek kartlar üzerinde gösterilir.
+
+## Katkıda Bulunma
+
+Bu projeye katkıda bulunmak isterseniz, lütfen aşağıdaki adımları izleyin:
+
+1. Projeyi Fork'layın
+2. Yeni bir Branch oluşturun (`feature/AmazingFeature`)
+3. Değişikliklerinizi Commit edin (`git commit -m 'Add some AmazingFeature'`)
+4. Branch'e Push yapın (`git push origin feature/AmazingFeature`)
+5. Bir Pull Request açın
+
+## Lisans
+
+Bu proje MIT lisansı altında lisanslanmıştır. Daha fazla bilgi için LICENSE dosyasına bakabilirsiniz.
+
+## Notlar
+
+Bu proje bir Windows cihaz üzerinde geliştirildiği için, Android emülatör üzerinde test edilmesi tavsiye edilir. iOS build ve testleri yapılamadığından bazı eksiklikler bulunabilir.
