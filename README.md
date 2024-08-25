@@ -8,7 +8,6 @@ Bu proje, basit bir Figma tasarımını fonksiyonel bir React Native uygulaması
 - [Özellikler](#özellikler)
 - [Kurulum](#kurulum)
 - [Kullanım](#kullanım)
-- [Proje Yapısı](#proje-yapısı)
 - [Redux Durum Yönetimi](#redux-durum-yönetimi)
 - [UI Bileşenleri](#ui-bileşenleri)
 - [Veri Yönetimi](#veri-yönetimi)
