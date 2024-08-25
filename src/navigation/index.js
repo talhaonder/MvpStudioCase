@@ -4,7 +4,7 @@ import {NavigationContainer} from '@react-navigation/native';
 import Icon from 'react-native-vector-icons/SimpleLineIcons';
 import IconThird from 'react-native-vector-icons/EvilIcons';
 
-// Ekranlarınızı import edin
+// Ekranları import ediyorum
 import FlightsScreen from '../screens/FlightsScreen';
 import PlansScreen from '../screens/PlansScreen';
 import ProfileScreen from '../screens/ProfileScreen';
