@@ -15,13 +15,13 @@
     "id": 2,
     "flightNumber": "TK1003",
     "airline": "Turkish Airlines",
-    "flightDuration": "4h 0m",
+    "flightDuration": "4h 10m",
     "departureDate": "23 Aug 2024",
     "arrivalDate": "24 Aug 2024",
     "departureCity": "San Diego",
     "arrivalCity": "Barcelona",
     "departureTime": "10:00 PM",
-    "arrivalTime": "12:00 AM"
+    "arrivalTime": "12:10 AM"
   },
   {
     "id": 3,
