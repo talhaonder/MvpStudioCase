@@ -12,27 +12,25 @@ Bu proje, basit bir Figma tasarımını fonksiyonel bir React Native uygulaması
 - [Redux Durum Yönetimi](#redux-durum-yönetimi)
 - [UI Bileşenleri](#ui-bileşenleri)
 - [Veri Yönetimi](#veri-yönetimi)
-- [Katkıda Bulunma](#katkıda-bulunma)
-- [Lisans](#lisans)
 - [Notlar](#notlar)
 
 ## Amaç
 
 Bu proje, basit bir Figma tasarımını fonksiyonel bir React Native uygulamasına dönüştürme becerinizi değerlendirmek için hazırlanmıştır. Tasarımı koda dönüştürmek, durum yönetimi yapmak ve yeniden kullanılabilir bileşenler oluşturmak gibi becerileriniz test edilecektir.
 
-**Figma dosyası**: [Figma Tasarımı](https://www.figma.com/design/cgODek1Y7g0s7B7VVhPlBn/mvpstudio-Case?node-id=81-3256&t=XSoINedjBQ0ZNVMQ-1)
+**Figma dosyası**: [Figma Tasarımı](https://www.figma.com/design/cgODek1Y7g0s7B7VVhPlBn/mvpstudio-Case)
 
 ## Özellikler
 
 1. **Boş Durum**:
 
    - Uygulama başladığında, uçuş eklenmediğini belirten bir mesajla birlikte boş durum ekranı görüntülenir.
-   - "Uçuş Ekle" butonu veya bir "+" simgesi bulunur.
+   - "Add Flight" butonu veya bir "+" simgesi bulunur.
 
 2. **Uçuş Ekle**:
 
-   - "Uçuş Ekle" butonuna veya "+" simgesine tıklandığında listeye yeni bir uçuş eklenir.
-   - Uçuş kartı, rastgele oluşturulan veya önceden belirlenmiş uçuş bilgileri (uçuş numarası, kalkış şehri, varış şehri ve saatler) ile doldurulur.
+   - "Add Flight" butonuna veya "+" simgesine tıklandığında listeye yeni bir uçuş eklenir.
+   - Uçuş kartı, rastgele seçilen ve önceden belirlenmiş uçuş bilgileri (uçuş numarası, kalkış şehri, varış şehri ve saatler) ile doldurulur.
    - Her uçuş kartı, sağlanan uçuş detaylarıyla render edilir.
 
 3. **Uçuş Kartı Etkileşimi**:
@@ -41,7 +39,7 @@ Bu proje, basit bir Figma tasarımını fonksiyonel bir React Native uygulaması
    - Bu etkileşim, kullanıcıya görsel geri bildirim sağlar.
 
 4. **Uçuş Sil**:
-   - Her uçuş kartında bir "Uçuşu Kaldır" butonu bulunur.
+   - Her uçuş kartında bir "Remove Flight" butonu bulunur.
    - Bu butona tıklandığında, ilgili uçuş listeden kaldırılır.
 
 ## Kurulum
@@ -50,8 +48,8 @@ Projenin yerel bilgisayarınıza kurulumu için aşağıdaki adımları izleyin:
 
 1. **Depoyu Klonlayın**:
    ```sh
-   git clone https://github.com/your-username/flight-management-app.git
-   cd flight-management-app
+   git clone https://github.com/talhaonder/MvpStudioCase.git
+   cd MvpStudioTalhaOnder
    ```
 2. **Bağımlılıkları Yükleyin**:
    ```sh
@@ -83,7 +81,7 @@ Projenin yerel bilgisayarınıza kurulumu için aşağıdaki adımları izleyin:
 
 ### Uçuş Detaylarını Görüntüleme
 
-**Uçuş Listesi**: Ana ekran, eklenen tüm uçuşların listesini görüntüler. Herhangi bir uçuşa tıklayarak detaylarını görüntüleyebilirsiniz.
+**Uçuş Listesi**: Ana ekran, eklenen tüm uçuşların listesini görüntüler. İstenilen tasarımda olduğu gibi arkaplanı blurlu bir tasarım mevcut. Herhangi bir uçuşa tıklayarak detaylarını görüntüleyebilirsiniz.
 
 ### Uçuşu Silme
 
@@ -124,20 +122,6 @@ Projedeki her bileşen, yeniden kullanılabilir ve özelleştirilebilir olacak �
 ## Veri Yönetimi
 
 Veri yönetimi için projede JSON dosyaları kullanılmıştır. `flightData.json` ve `twoWayFlightData.json` dosyaları, uçuş bilgilerinin tutulduğu dosyalardır. Bu veriler, uygulamanın bileşenlerine geçilerek kartlar üzerinde gösterilir.
-
-## Katkıda Bulunma
-
-Bu projeye katkıda bulunmak isterseniz, lütfen aşağıdaki adımları izleyin:
-
-1. Projeyi Fork'layın
-2. Yeni bir Branch oluşturun (`feature/AmazingFeature`)
-3. Değişikliklerinizi Commit edin (`git commit -m 'Add some AmazingFeature'`)
-4. Branch'e Push yapın (`git push origin feature/AmazingFeature`)
-5. Bir Pull Request açın
-
-## Lisans
-
-Bu proje MIT lisansı altında lisanslanmıştır. Daha fazla bilgi için LICENSE dosyasına bakabilirsiniz.
 
 ## Notlar
 
