@@ -47,18 +47,18 @@ const typography = {
 };
 
 const spacing = {
+  half: 1.5,
   one: 1,
   thin: 4,
   small: 6,
   ten: 10,
   medium: 15,
   large: 24,
-  quarter: 25,
   xLarge: 35,
   mega: 45,
   ultra: 60,
   hundred: 100,
-  container: 370
+  container: 370,
 };
 
 const buttonSizes = {
