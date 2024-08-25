@@ -9,6 +9,7 @@ import {
   TouchableOpacity,
   TouchableWithoutFeedback,
 } from 'react-native';
+import {BlurView} from '@react-native-community/blur'; // BlurView bileşenini import ediyorum
 import {useDispatch, useSelector} from 'react-redux';
 import EmptyState from '../components/flightsComponents/EmptyState';
 import Header from '../components/flightsComponents/Header';
@@ -73,7 +74,7 @@ const FlightsScreen = () => {
           setCombinedFlights(prev => [...prev, {...newFlight, type: 'oneWay'}]);
         } else {
           // Eğer ekleyecek uçuş kalmadıysa kullanıcıyı bilgilendiriyorum.
-          alert('Ekleyebileceğiniz başka uçuş kalmadı.');
+          alert('There are no more flights to add.');
         }
       }
     } else {
@@ -93,7 +94,7 @@ const FlightsScreen = () => {
           ]);
         } else {
           // Eğer ekleyecek uçuş kalmadıysa kullanıcıyı bilgilendiriyorum.
-          alert('Ekleyebileceğiniz başka uçuş kalmadı.');
+          alert('There are no more flights to add.');
         }
       }
     }
@@ -223,7 +224,7 @@ const FlightsScreen = () => {
   };
 
   return (
-    // Güvenli alan oluşturarak ana container'ı tanımlıyorum.
+    // Sabite bir ekran oluşturarak ana container'ı tanımlıyorum.
     <SafeAreaView style={styles.container}>
       {/* Header bileşenini ekliyorum ve uçuş ekleme fonksiyonunu prop olarak veriyorum. */}
       <Header onAddFlight={handleAddFlight} />
@@ -257,6 +258,11 @@ const FlightsScreen = () => {
             dispatch(clearSelectedFlight());
           }}>
           <View style={styles.modalBackground}>
+            <BlurView
+              style={styles.absolute}
+              blurType="regular" // Bulanıklık tipi (light, dark, etc.)
+              blurAmount={10} // Bulanıklık derecesi
+            />
             <TouchableWithoutFeedback>
               <>
                 {/* Seçili uçuş kartını render ediyorum. */}
@@ -289,7 +295,13 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: colors.transparent,
+  },
+  absolute: {
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    bottom: 0,
+    right: 0,
   },
   removeButtonContainer: {
     marginTop: spacing.ten * 2,
