@@ -4,10 +4,10 @@ import Icon from 'react-native-vector-icons/Feather';
 import {buttonSizes, colors, spacing, typography} from '../../style';
 
 const Header = ({onAddFlight}) => {
-  // Use prop instead of context
   return (
     <View style={styles.container}>
       <Text style={styles.headerText}>Flights</Text>
+      {/* Uçuş eklemek için kullanılan buton. onPress olayında onAddFlight fonksiyonunu çağırır. */}
       <Icon
         name="plus"
         size={buttonSizes.defaultHeight}
