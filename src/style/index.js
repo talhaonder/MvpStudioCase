@@ -12,7 +12,7 @@ const colors = {
   soluk: '#fbe8a3',
   footer: '#eae6e3',
   timeColor: '#374151',
-  transparentBackground: '#7f7f7f',
+  transparentBackground: '#666363',
   littleTextColor: '#4b5563',
   red: '#c2410c',
   addBackground: '#ea580c',
