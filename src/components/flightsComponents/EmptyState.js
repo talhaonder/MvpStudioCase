@@ -2,7 +2,7 @@ import React from 'react';
 import {View, Text, StyleSheet, TouchableOpacity} from 'react-native';
 import Icon from 'react-native-vector-icons/SimpleLineIcons';
 import {buttonSizes, colors, spacing, typography} from '../../style';
-const EmptyState = ({onAddTwoWay}) => {
+const EmptyState = ({onAddFlight}) => {
   return (
     <View style={styles.container}>
       <View style={styles.iconContainer}>
@@ -16,7 +16,8 @@ const EmptyState = ({onAddTwoWay}) => {
         </Text>
       </View>
       <View style={styles.container}>
-        <TouchableOpacity style={styles.buttonContainer} onPress={onAddTwoWay}>
+        {/* Uçuş eklemek için kullanılan buton. onPress olayında onAddFlight fonksiyonunu çağırır. */}
+        <TouchableOpacity style={styles.buttonContainer} onPress={onAddFlight}>
           <Text style={styles.buttonText}>Add Flight</Text>
         </TouchableOpacity>
       </View>
