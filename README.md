@@ -1,6 +1,6 @@
 # Uçuş Yönetim Uygulaması
 
-Bu proje, basit bir Figma tasarımını fonksiyonel bir React Native uygulamasına dönüştürmeyi amaçlayan bir çalışmadır. Bu uygulama, uçuş bilgilerini yönetmek için kullanıcı dostu bir arayüz sunar ve boş durum, uçuş ekleme, uçuş kartı etkileşimi ve uçuş silme özelliklerini içerir.
+Bu proje, MVPStudio tarafından verilen bir case çalışmasının bir parçası olarak geliştirilmiştir. Görev, basit bir Figma tasarımını fonksiyonel bir React Native uygulamasına dönüştürmeyi içermektedir. Uygulama, uçuş bilgilerini yönetmek için kullanıcı dostu bir arayüz sunar ve aşağıdaki temel özellikleri içerir: boş durum ekranı, uçuş ekleme, uçuş kartı etkileşimi ve uçuş silme.
 
 ![Uygulama Ekran Görüntüsü](https://github.com/talhaonder/MvpStudioCase/blob/main/src/assets/ss/Screenshot_1724687615.png)
 
