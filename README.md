@@ -128,5 +128,5 @@ Veri yönetimi için projede JSON dosyaları kullanılmıştır. `flightData.jso
 
 Bu proje bir Windows cihaz üzerinde geliştirildiği için, Android emülatör üzerinde test edilmesi tavsiye edilir. iOS build ve testleri yapılamadığından bazı eksiklikler bulunabilir.
 
-android/gradle version 8.3
+android/gradle version 8.3 &&
 react-native version 0.73.6
