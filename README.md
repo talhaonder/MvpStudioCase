@@ -2,6 +2,8 @@
 
 Bu proje, basit bir Figma tasarımını fonksiyonel bir React Native uygulamasına dönüştürmeyi amaçlayan bir çalışmadır. Bu uygulama, uçuş bilgilerini yönetmek için kullanıcı dostu bir arayüz sunar ve boş durum, uçuş ekleme, uçuş kartı etkileşimi ve uçuş silme özelliklerini içerir.
 
+![Uygulama Ekran Görüntüsü](https://github.com/talhaonder/MvpStudioCase/blob/main/src/assets/ss/Screenshot_1724687615.png)
+
 ## İçindekiler
 
 - [Amaç](#amaç)
